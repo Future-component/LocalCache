@@ -6,6 +6,15 @@
  * depend [no]
  */
 
+ /**
+  * 功能点：
+  * 1.数据键值对缓存
+  * 2.cookie存储
+  * 3.localStorage存储
+  * 4.sessionStorage存储
+  * 5.indexedDB存储（待定）
+  */
+
 ((global, factory) => {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
     typeof define === 'function' && define.amd ? define(factory) :
@@ -223,7 +232,9 @@
   （5）储存空间大 IndexedDB的储存空间比localStorage大得多，一般来说不少于250MB。IE的储存上限是250MB，Chrome和Opera是剩余空间的某个百分比，Firefox则没有上限。
   （6）支持二进制储存。 IndexedDB不仅可以储存字符串，还可以储存二进制数据。
    */
-  this.indexDB = {}
+  this.indexDB = {
+
+  }
 
   const localCache$1 = localCache;
 
