@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>本地缓存demo</title>
+</head>
+<body>
+  <script src="../dist//localCache.js"></script>
+  <script>
+    console.log(localCache)
+
+    var typeCache = localCache.cache();
+    typeCache('monitor');
+    console.log(typeCache('monitor'));
+
+    typeCache('monitor', 'beth');
+    console.log(typeCache('monitor'));
+
+    console.time('no-key')
+    var monitor = 'beth';
+    console.log(monitor);
+    console.timeEnd('no-key');
+
+    // 验证
+    var count = 0;
+    function createFib() {
+      function fib(n) {
+        console.log(count, n)
+        if (n <= 2) {
+          count++;
+          return 1;
+        } else {
+          count = fib(n - 1) + fib(n - 2);
+        }
+        return count;
+      }
+      return fib;
+    }
+
+    // var fib = createFib();
+    // console.time('no-cache-fib');
+    // fib(10);
+    // console.log(count);
+    // console.timeEnd('no-cache-fib');
+    // count = 0;
+    // console.time('no-cache-fib');
+    // fib(20);
+    // console.log(count);
+    // console.timeEnd('no-cache-fib');
+
+    var count1 = 0;
+    function createCacheFib() {
+      var fibCache = localCache.createCache();
+      function fib(n) {
+        count1++;
+        // 从cache中缓存数据
+        if (fibCache(n) !== undefined) {
+          // 如果缓存中有直接返回
+          return fibCache(n);
+        }
+        // 如果缓存中没有 就计算
+        if (n <= 2) {
+          // 把计算结果存入数组
+          fibCache(n, 1);
+          return 1;
+        }
+        var temp = fib(n - 1) + fib(n - 2);
+        // 把计算结果存入数组
+        fibCache(n, temp);
+        return temp;
+      }
+
+      return fib;
+    }
+
+    // var fib1 = createCacheFib();
+    // console.time('cache-fib');
+    // fib1(10);
+    // console.log(count1);
+    // console.timeEnd('cache-fib');
+    // count1 = 0;
+    // console.time('cache-fib');
+    // fib1(20);
+    // console.log(count1);
+    // console.timeEnd('cache-fib'); 
+
+    console.time('cookie')
+    var cacheCookie = localCache.cookie();
+    var cookies = cacheCookie.getAll();
+    console.log(cookies)
+    cacheCookie.set('xq', JSON.stringify({ name: 'beth' }), 1);
+    var xq = cacheCookie.get('xq');
+    console.log(xq && JSON.parse(xq))
+    cacheCookie.remove('xq');
+    cacheCookie.set('xq', JSON.stringify({ name: 'beth' }), 1);
+    // cacheCookie.clear();
+    console.timeEnd('cookie')
+
+    var cacheStorage = localCache.storage();
+    console.time('storage')
+    cacheStorage.set('xq', JSON.stringify({ name: 'beth' }))
+    var storages = cacheStorage.getAll();
+    console.log(storages)
+    var xq = cacheStorage.get('xq');
+    console.log(xq && JSON.parse(xq))
+    cacheStorage.remove('xq');
+    cacheStorage.set('xq', JSON.stringify({ name: 'beth' }))
+    // cacheStorage.clear();
+    console.timeEnd('storage')
+  </script>
+</body>
+</html>

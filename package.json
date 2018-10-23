@@ -2,8 +2,10 @@
   "name": "local-cache",
   "version": "1.0.0",
   "description": "> LocalCache 是一个处理缓存数据的工具库，包含对象缓存，cookie存储，localStorage和seesionStorage存储",
-  "main": "index.js",
+  "main": "lib/localCache.js",
   "scripts": {
+    "server": "http-server",
+    "build": "webpack --config scripts/webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -18,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/Future-component/LocalCache/issues"
   },
-  "homepage": "https://github.com/Future-component/LocalCache#readme"
+  "homepage": "https://github.com/Future-component/LocalCache#readme",
+  "devDependencies": {
+    "lodash": "^4.17.11",
+    "webpack": "^4.22.0",
+    "webpack-cli": "^3.1.2"
+  }
 }
