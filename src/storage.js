@@ -1,5 +1,5 @@
 
-export default (prefix, type) => {
+export const storage = (prefix, type) => {
   const prefix$1 = prefix || 'lc';
   const localStorage = type || window.localStorage;
 

@@ -1,6 +1,6 @@
 {
-  "name": "local-cache",
-  "version": "1.0.0",
+  "name": "lc-cache",
+  "version": "1.1.0",
   "description": "> LocalCache 是一个处理缓存数据的工具库，包含对象缓存，cookie存储，localStorage和seesionStorage存储",
   "main": "lib/localCache.js",
   "scripts": {
@@ -25,5 +25,9 @@
     "lodash": "^4.17.11",
     "webpack": "^4.22.0",
     "webpack-cli": "^3.1.2"
-  }
+  },
+  "files": [
+    "lib",
+    "index1.0.js"
+  ]
 }

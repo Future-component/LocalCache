@@ -1,7 +1,7 @@
 
 import { logger } from './utils'
 
-export default (prefix) => {
+export const cache = (prefix) => {
   const prefix$1 = prefix || 'lc';
   // cache对象中以键值对的形式存储我们的缓存数据
   const cache = {};

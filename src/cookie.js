@@ -1,6 +1,6 @@
 
 // 实现一个cookie框架的封装（注意在把html转换为实体存储的时候这里默认是去掉最末尾的分号）
-export default (prefix) => {
+export const cookie = (prefix) => {
   const prefix$1 = prefix || 'lc';
 
   return {
