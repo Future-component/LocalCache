@@ -21,6 +21,8 @@ storage | function | 基于storage的存储 | localStorage
 
 ### cache样例
 ```js
+import as * localCache from 'local-cache-tools'
+
 // 初始化cache
 const typeCache = localCache.cache()
 
@@ -30,8 +32,10 @@ typeCache('name', 'beth');
 
 ### cookie样例
 ```js
+import { cookie } from 'local-cache-tools'
+
 // 初始化cookie
-const cacheCookie = localCache.cookie()
+const cacheCookie = cookie()
 
 // 获取所有的cookie对象
 const cookies = cacheCookie.getAll();
@@ -55,10 +59,10 @@ cacheCookie.clear();
 
 ### storage样例
 ```js
-const cache = new localCache({ debug: true });
+import { storage } from 'local-cache-tools'
 
 // 初始化storage对象
-const cacheStorage = cache.storage();
+const cacheStorage = storage();
 
 // 设置storage
 cacheStorage.set('xq', JSON.stringify({ name: 'beth' }))
