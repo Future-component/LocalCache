@@ -4,7 +4,7 @@
 ### Example
 [GitHub地址:https://github.com/Future-component/LocalCache](https://github.com/Future-component/LocalCache)
 
-[demo地址:https://github.com/Future-component/LocalCache/blob/master/example/index.html](https://github.com/Future-component/LocalCache/blob/master/example/index.html)
+[demo地址:https://github.com/Future-component/LocalCache/blob/master/example/index.html](https://github.com/Future-component/LocalCache/blob/master/example/index2.0.html)
 
 ### 安装
 ```js
@@ -57,6 +57,16 @@ cacheCookie.set('xq', JSON.stringify({ name: 'beth' }), 1);
 cacheCookie.clear();
 ```
 
+#### cookie() 的API
+
+方法 | 参数 | 含义
+---|---|---
+getAll | - | 获取所有cookie对象
+set | key, value, days, path | 设置cookie
+get | key | 获取cookie
+remove | key, path | 删除cookie
+clear | - | 清空所有cookie
+
 ### storage样例
 ```js
 import { storage } from 'local-cache-tools'
@@ -83,3 +93,15 @@ cacheStorage.set('xq', JSON.stringify({ name: 'beth' }))
 // 清空所有storage
 cacheStorage.clear();
 ```
+
+#### storage() API
+方法 | 参数 | 含义
+---|---|---
+getAll | - | 获取所有storage对象
+set | key, value | 设置storage
+get | key | 获取storage
+remove | key | 删除storage
+clear | - | 清空所有storage
+
+### 未来规划
+* 暂无
