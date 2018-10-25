@@ -7,7 +7,7 @@
     "server": "http-server",
     "prepublish": "npm run build",
     "build": "webpack --config scripts/webpack.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/jest/bin/jest.js"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +23,9 @@
   },
   "homepage": "https://github.com/Future-component/LocalCache#readme",
   "devDependencies": {
+    "babel-jest": "^23.6.0",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^23.6.0",
     "lodash": "^4.17.11",
     "webpack": "^4.22.0",
     "webpack-cli": "^3.1.2"
@@ -30,5 +33,10 @@
   "files": [
     "lib",
     "index1.0.js"
-  ]
+  ],
+  "dependencies": {
+    "loader-utils": "^1.1.0",
+    "memory-fs": "^0.4.1",
+    "schema-utils": "^1.0.0"
+  }
 }

@@ -17,6 +17,6 @@ module.exports = [
         amd: 'lodash',
         root: '_'
       }
-    }
+    },
   }
 ];
